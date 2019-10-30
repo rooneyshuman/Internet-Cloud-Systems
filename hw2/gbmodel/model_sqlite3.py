@@ -19,7 +19,7 @@ from datetime import date
 from .Model import Model
 import sqlite3
 
-DB_FILE = 'entries.db'  # file for our Database
+DB_FILE = 'shops.db'  # file for our Database
 
 
 class model(Model):
