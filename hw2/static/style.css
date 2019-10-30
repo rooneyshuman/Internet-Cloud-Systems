@@ -1,4 +1,16 @@
-body       { font-family: "Helvetica", sans-serif; font-size: 20px; color: #008303; }
+/* Navbar styles */
+.nav-link{
+    color : rgb(86, 86, 86) !important;
+    font-size: 17px;
+  }
+  .nav-item > a:hover {
+      color :rgb(42, 195, 193)!important;
+  }
+  .nav-item.active .nav-link {
+      color :rgb(42, 195, 193)!important;
+  }
+
+body       { font-family: "Archivo", sans-serif; font-size: 20px; color: #008303; }
 a, h1, h2  { color: #00008F; }
 form       { margin:.1em auto; padding:.1em; width: 400px; border: 1px }
 .heading  { font-weight: bold; }
