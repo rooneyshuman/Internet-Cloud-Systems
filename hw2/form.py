@@ -4,7 +4,7 @@ import gbmodel
 
 class Sign(MethodView):
     def get(self):
-        return render_template('sign.html')
+        return render_template('form.html')
 
     def post(self):
         """
