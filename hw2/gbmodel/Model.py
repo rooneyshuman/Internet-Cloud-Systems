@@ -6,12 +6,19 @@ class Model():
         """
         pass
 
-    def insert(self, name, email, message):
+    def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, drink, rating):
         """
         Inserts entry into database
         :param name: String
-        :param email: String
-        :param message: String
+        :param street: String
+        :param city: String
+        :param state: String
+        :param zip: int
+        :param open_hr: String
+        :param close_hr: String
+        :param phone: String
+        :param drink: String
+        :param rating: int
         :return: none
         :raises: Database errors on connection and insertion
         """
