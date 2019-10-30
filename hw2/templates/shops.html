@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>List of Shops</h2>
+<h2>List of Shops</h2>
 
-    <h3>Bubble Tea Shops:</h3>
-    {% for entry in entries %}
-        <p class=entry>
-            {{ entry.name }} &lt;{{ entry.email }}&gt;
-	    <br>signed on {{ entry.signed_on }}<br>
-	    {{ entry.message }}
-        </p>
-    {% endfor %}
+<h3>Bubble Tea Shops:</h3>
+{% for shop in shops %}
+<p class=shop>
+    {{ shop.name }}
+    {{ shop.street }} <br>
+    {{ shop.city }}, {{ shop.state }} {{ shop.zip }} <br>
+    Hours: {{ shop.open_hr }} - {{ shop.close_hr }} <br>
+    {{ shop.phone }} <br>
+    Signature Drink: {{ shop.drink }} <br>
+    Rating: {{ shop.rating }} <br>
+</p>
+{% endfor %}
 
 {% endblock %}
