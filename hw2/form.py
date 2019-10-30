@@ -2,7 +2,7 @@ from flask import redirect, request, url_for, render_template
 from flask.views import MethodView
 import gbmodel
 
-class Sign(MethodView):
+class Form(MethodView):
     def get(self):
         return render_template('form.html')
 
@@ -13,4 +13,4 @@ class Sign(MethodView):
         """
         model = gbmodel.get_model()
         model.insert(request.form['name'], request.form['email'], request.form['message'])
-        return redirect(url_for('index'))
+        return redirect(url_for('shops'))
