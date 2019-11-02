@@ -28,9 +28,9 @@ class model(Model):
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         try:
-            cursor.execute("select count(rowid) from shoplist")
+            cursor.execute("SELECT COUNT(rowid) FROM shoplist")
         except sqlite3.OperationalError:
-            cursor.execute("create table shoplist (name text, street text, city text, state text, zip integer, open_hr text, close_hr text, phone text, drink text, rating integer)")
+            cursor.execute("CREATE TABLE shoplist (name text, street text, city text, state text, zip integer, open_hr text, close_hr text, phone text, drink text, rating integer)")
         cursor.close()
 
     def select(self):
@@ -41,7 +41,10 @@ class model(Model):
         """
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM shoplist")
+        try:
+            cursor.execute("SELECT * FROM shoplist")
+        except sqlite3.OperationalError:
+            cursor.execute("CREATE TABLE shoplist (name text, street text, city text, state text, zip integer, open_hr text, close_hr text, phone text, drink text, rating integer)")
         return cursor.fetchall()
 
     def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, drink, rating):
