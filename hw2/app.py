@@ -19,7 +19,7 @@ app.add_url_rule('/form/',
 
 app.add_url_rule('/shops/',
                  view_func=Shops.as_view('shops'),
-                 methods=["GET"])
+                 methods=['GET', 'POST'])
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
