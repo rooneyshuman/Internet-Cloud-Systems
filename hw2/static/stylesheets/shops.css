@@ -49,3 +49,12 @@
   margin-right: 25px;
   background-position-y: 100%;
 }
+
+.btn {
+  font-size: 15px;
+    color : #007bff
+}
+
+.btn:hover {
+    color : #007bff
+}
