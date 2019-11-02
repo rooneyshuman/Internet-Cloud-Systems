@@ -1,0 +1,41 @@
+/* Shops styles */
+
+#map {
+    height: 555px;
+    width: auto;
+    margin: 20px;
+    margin: 0px 5px;
+}
+
+#shop-table {
+    width: auto;
+    margin: 20px;
+    margin-left: 15px;
+    margin-top: 0px;
+}
+
+.table-scroll {
+    height: 555px;
+    overflow: auto;
+}
+
+.checked {
+    color : rgb(42,195,193)
+}
+
+.card {
+    color :rgb(86, 86, 86);
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.row {
+    width: auto;
+    margin: 0px;
+}
+
+.transparent-border {
+    border: transparent;
+}
