@@ -4,6 +4,10 @@ import gbmodel
 
 class Form(MethodView):
     def get(self):
+        """
+        GET method for the form page
+        :return: renders the form.html page on return
+        """
         return render_template('form.html')
 
     def post(self):
