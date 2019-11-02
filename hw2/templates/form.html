@@ -1,59 +1,35 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!--<h2>Add a New Bubble Tea Shop!</h2>-->
-<!--<form action="{{ url_for('form') }}" method=post>-->
-<!--  <p class="heading">Name: <input type=text name=name>-->
-<!--  <p class="heading">Street: <input type=text name=street>-->
-<!--  <p class="heading">City: <input type=text name=city>-->
-
-<!--  <p class="heading">State: <input type=text name=state>-->
-
-<!--  <p class="heading">Zip: <input type=text name=zip>-->
-<!--  <p class="heading">Open Hour: <input type=time name=open_hr>-->
-<!--  <p class="heading">Close Hour: <input type=time name=close_hr>-->
-<!--  <p class="heading">Phone Number: <input type=text name=phone>-->
-<!--  <p class="heading">Drink: <input type=text name=drink>-->
-<!--  <p class="heading">Rating: <input type=text name=rating>-->
-
-
-<!--</form>-->
-
 <div id="main_container">
   <div class="container pb-3" id="form_container">
-    <div class="text-center pt-3 text-info">
+    <div class="text-center pt-3">
       <h1>Add a New Bubble Tea Shop</h1>
       <p class="lead">Enter the info for a shop and we'll add it to the Boba Guide</p>
     </div>
     <div class="container ml-2 d-flex justify-content-center align-items-center">
-      <form action="{{ url_for('form') }}" class="col-xs-8 px-0 text-info" method=post>
+      <form action="{{ url_for('form') }}" class="col-5 px-0" method=post>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Shop Name</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <div class="px-0 col">
             <input type="text" class="form-control" id="name" name="name" placeholder="Shop Name" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Street</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <div class="px-0 col">
             <input type="text" class="form-control" id="street" name="street" placeholder="Street" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">City</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <div class="px-0 col-sm-6">
             <input type="text" class="form-control" id="city" name="city" placeholder="city" required>
           </div>
-        </div>
 
-        <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">State</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <div class="px-0 col-sm-3 ml-2">
             <select select class="form-control" name="state" required>
-              <option value="" selected disabled>state select</option>
+              <option value="" selected disabled>state</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -107,45 +83,40 @@
               <option value="WY">Wyoming</option>
             </select>
           </div>
-        </div>
 
-        <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Zip</label>
-          <div class="px-0 ml-2 col-sm-7">
-            <input type="text" class="form-control" id="zip" name="zip" required>
+          <div class="px-0 ml-2 col">
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="zip" maxlength="5" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Opening Hours</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <label class="px-0 col-sm-3 col-form-label">Open from</label>
+          <div class="px-0 col-sm-4">
             <input type="time" class="form-control" id="open_hr" name="open_hr" required>
           </div>
-        </div>
 
-        <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Closing Hours</label>
-          <div class="px-0 ml-2 col-sm-7">
+          <label class="px-0 ml-2 col col-form-label">to</label>
+          <div class="px-0 ml-2 col-sm-4">
             <input type="time" class="form-control" id="close_hr" name="close_hr" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Phone Number</label>
-          <div class="px-0 ml-2 col-sm-7">
-            <input type="text" class="form-control" id="phone" name="phone" placeholder="123-456-7890" required>
+          <label class="px-0 col-sm-4 col-form-label">Signature drink</label>
+          <div class="px-0 col">
+            <input type="text" class="form-control" id="drink" name="drink" placeholder="ex: jasmine milk tea" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="px-0 col-sm-4 col-form-label">Drink to order:</label>
-          <div class="px-0 ml-2 col-sm-7">
-            <input type="text" class="form-control" id="drink" name="drink" placeholder="drink" required>
+          <label class="px-0 col-sm-2 col-form-label">Phone</label>
+          <div class="px-0 col-sm-4">
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4 col-form-label px-0">Rating:</label>
+          <label class="col-sm-4 col-form-label px-0"></label>
           <div class="px-0 col-sm-7 mt-1 mb-0 ml-2">
                 <span class="rating">
                   <input type="radio" class="rating-input" id="five-stars" name="rating" value="5" required>
@@ -167,9 +138,9 @@
         </div>
 
         <div class="form-group row">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-info ml-5 btn-lg" value="Form">Add To Shops List</button>
-<!--              <p><input type=submit value=Form></p>-->
+          <div class="col px-0">
+            <button type="submit" class="btn btn-md btn-block" value="Form" >Add To Shops List</button>
+            <!--              <p><input type=submit value=Form></p>-->
           </div>
         </div>
       </form>
