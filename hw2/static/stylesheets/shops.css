@@ -39,3 +39,7 @@ h4 {
 .transparent-border {
     border: transparent;
 }
+
+.card-text {
+  font-size: 15px;
+}
