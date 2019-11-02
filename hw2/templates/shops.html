@@ -1,18 +1,55 @@
 {% extends "layout.html" %}
+
+{% block stylesheet %}
+<link rel=stylesheet type=text/css href="/static/stylesheets/shops.css">
+{% endblock %}
+
+
 {% block content %}
-<h2>List of Shops</h2>
 
-<h3>Bubble Tea Shops:</h3>
-{% for shop in shops %}
-<p class=shop>
-    {{ shop.name }}
-    {{ shop.street }} <br>
-    {{ shop.city }}, {{ shop.state }} {{ shop.zip }} <br>
-    Hours: {{ shop.open_hr }} - {{ shop.close_hr }} <br>
-    {{ shop.phone }} <br>
-    Signature Drink: {{ shop.drink }} <br>
-    Rating: {{ shop.rating }} <br>
-</p>
-{% endfor %}
+<div class="row">
 
+  <div class="col-sm-5 table-scroll pr-0">
+    <div id="shop-table">
+      <table class="table table-bordered table-striped table-light">
+        {% for shop in shops %}
+        <tr>
+          <div class="card" id="shopid<%=shop%>">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img src="https://www.discoverlosangeles.com/sites/default/files/styles/hero/public/media/activities/little_fluffy_head_cafe_teas.jpg?itok=KpedoSDK" style="width:150px; height:auto;">
+                </div>
+                <div class="col-sm-7">
+                  <h4>{{ loop.index }}. {{ shop.name }}</h4>
+                  {% for i in range(shop.rating) %}
+                  <span class="fa fa-star checked"></span>
+                  {% endfor %}
+                  {% for i in range(5 - shop.rating) %}
+                  <span class="fa fa-star"></span>
+                  {% endfor %} <br>
+                  <div class="card-text">
+                    {{ shop.street }} <br>
+                    {{ shop.city }}, {{ shop.state }} {{ shop.zip }} <br>
+                    Hours: {{ shop.open_hr }} - {{ shop.close_hr }} <br>
+                    {{ shop.phone }} <br>
+                    Signature Drink: {{ shop.drink }} <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('.card').hover(
+      function(){ $(this).addClass('border-info') },
+      function(){ $(this).removeClass('border-info') }
+    )
+  </script>
+</div>
 {% endblock %}
