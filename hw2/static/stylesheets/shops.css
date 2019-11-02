@@ -20,8 +20,9 @@
     color :rgb(86, 86, 86);
 }
 
-h4 {
+.name_links {
     font-weight: bold;
+    font-size: 22px;
 }
 
 .row {

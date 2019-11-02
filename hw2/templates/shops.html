@@ -14,14 +14,14 @@
       <table class="table table-bordered table-striped table-light">
         {% for shop in shops %}
         <tr>
-          <div class="card" id="shopid<%=shop%>">
+          <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-5">
                   <img src="/static/images/cups_straws.jpg" style="width:180px; height:auto;">
                 </div>
                 <div class="col-sm-7">
-                  <h4>{{ loop.index }}. {{ shop.name }}</h4>
+                  <a  class="name_links" href="{{ shop.website }}">{{ loop.index }}. {{ shop.name }}</a> <br>
                   {% for i in range(shop.rating) %}
                   <span class="fa fa-star checked"></span>
                   {% endfor %}
@@ -52,6 +52,7 @@
         function(){ $(this).addClass('border-info') },
         function(){ $(this).removeClass('border-info') }
       )
+      console.log({{shops[1]}});
     </script>
 </div>
 {% endblock %}

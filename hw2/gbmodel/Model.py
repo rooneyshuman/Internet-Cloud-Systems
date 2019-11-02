@@ -6,7 +6,7 @@ class Model():
         """
         pass
 
-    def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, drink, rating):
+    def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, website, drink, rating):
         """
         Inserts entry into database
         :param name: String
@@ -17,6 +17,7 @@ class Model():
         :param open_hr: String
         :param close_hr: String
         :param phone: String
+        :param website: String
         :param drink: String
         :param rating: int
         :return: none
