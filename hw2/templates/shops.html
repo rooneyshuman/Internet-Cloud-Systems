@@ -18,7 +18,15 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-5">
-                  <img src="/static/images/cups_straws.jpg" style="width:180px; height:auto;">
+                  <div class="row">
+                    <img src="/static/images/cups_straws.jpg" style="width:180px; height:auto;">
+                  </div>
+                  <div class="row">
+                    <form action="{{ url_for('shops') }}" method=post>
+                      <input type="hidden" name="name" value="{{ shop.name }}">
+                      <button type="submit" class="btn btn-light btn-xs btn-block" value="Form" >Delete</button>
+                    </form>
+                  </div>
                 </div>
                 <div class="col-sm-7">
                   <a  class="name_links" href="{{ shop.website }}">{{ loop.index }}. {{ shop.name }}</a> <br>
@@ -47,12 +55,11 @@
 
   <div class="col pr-0" id="shops_img">
   </div>
-    <script type="text/javascript">
+  <script type="text/javascript">
       $('.card').hover(
         function(){ $(this).addClass('border-info') },
         function(){ $(this).removeClass('border-info') }
       )
-      console.log({{shops[1]}});
-    </script>
+  </script>
 </div>
 {% endblock %}
