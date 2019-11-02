@@ -29,12 +29,12 @@
 
         <div class="form-group row">
           <div class="px-0 col-sm-6">
-            <input type="text" class="form-control" id="city" name="city" placeholder="city" required>
+            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
           </div>
 
           <div class="px-0 col-sm-3 ml-2">
             <select select class="form-control" name="state" required>
-              <option value="" selected disabled>state</option>
+              <option value="" selected disabled>State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -90,26 +90,26 @@
           </div>
 
           <div class="px-0 ml-2 col">
-            <input type="text" class="form-control" id="zip" name="zip" placeholder="zip" maxlength="5" required>
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Zip" maxlength="5" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="px-0 col-sm-3 col-form-label">Open from</label>
           <div class="px-0 col-sm-4">
-            <input type="time" class="form-control" id="open_hr" name="open_hr" required>
+            <input type="text" class="form-control timepicker" id="open_hr" name="open_hr" required>
           </div>
 
           <label class="px-0 ml-2 col col-form-label">to</label>
           <div class="px-0 ml-2 col-sm-4">
-            <input type="time" class="form-control" id="close_hr" name="close_hr" required>
+            <input type="text" class="form-control timepicker" id="close_hr" name="close_hr" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="px-0 col-sm-4 col-form-label">Signature drink</label>
           <div class="px-0 col">
-            <input type="text" class="form-control" id="drink" name="drink" placeholder="ex: jasmine milk tea" required>
+            <input type="text" class="form-control" id="drink" name="drink" placeholder="Ex: jasmine milk tea" required>
           </div>
         </div>
 
@@ -153,4 +153,17 @@
   </div>
 </div>
 
+<script>
+  $('.timepicker').timepicker({
+    timeFormat: 'h:mm p',
+    interval: 60,
+    minTime: '3',
+    maxTime: '11:59pm',
+    defaultTime: '8',
+    startTime: '3:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+  });
+</script>
 {% endblock %}
