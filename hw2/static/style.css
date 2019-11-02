@@ -15,9 +15,15 @@
 .navbar {
   padding: 0rem 1rem;
 }
+
+.navbar-brand {
+  color: rgb(42, 195, 193) !important;
+  font-size: 2.5vw;
+  font-family: 'Fredoka One', cursive;
+}
 /* -------------------------------------- */
 
- /* Index styles */
+/* Index styles */
 #main-boba {
   background-image: url('/static/boba_main_bg.jpg');
   background-size: cover;
@@ -98,11 +104,16 @@ h2 {
 }
 /* ----------------------- */
 
-body       { font-family: "Archivo", sans-serif; font-size: 20px; color: rgb(86,86,86); }
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: rgb(86,86,86);
+}
+
 .heading  { font-weight: bold; }
 .shop     { margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid #888; }
 
 /* Footer styles */
 footer {
-    padding-top: 2.5%;
+  padding-top: 2.5%;
 }
