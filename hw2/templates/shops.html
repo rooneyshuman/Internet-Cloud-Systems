@@ -18,7 +18,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-5">
-                  <img src="https://www.discoverlosangeles.com/sites/default/files/styles/hero/public/media/activities/little_fluffy_head_cafe_teas.jpg?itok=KpedoSDK" style="width:150px; height:auto;">
+                  <img src="/static/images/two_bottles.jpg" style="width:180px; height:auto;">
                 </div>
                 <div class="col-sm-7">
                   <h4>{{ loop.index }}. {{ shop.name }}</h4>
@@ -31,9 +31,9 @@
                   <div class="card-text">
                     {{ shop.street }} <br>
                     {{ shop.city }}, {{ shop.state }} {{ shop.zip }} <br>
-                    Hours: {{ shop.open_hr }} - {{ shop.close_hr }} <br>
                     {{ shop.phone }} <br>
-                    Signature Drink: {{ shop.drink }} <br>
+                    <b>Hours:</b> {{ shop.open_hr }} - {{ shop.close_hr }} <br>
+                    <b>Signature Drink:</b> {{ shop.drink }} <br>
                   </div>
                 </div>
               </div>
@@ -45,11 +45,11 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    $('.card').hover(
-      function(){ $(this).addClass('border-info') },
-      function(){ $(this).removeClass('border-info') }
-    )
-  </script>
+    <script type="text/javascript">
+      $('.card').hover(
+        function(){ $(this).addClass('border-info') },
+        function(){ $(this).removeClass('border-info') }
+      )
+    </script>
 </div>
 {% endblock %}
