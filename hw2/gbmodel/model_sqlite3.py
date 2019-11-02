@@ -23,10 +23,10 @@ DB_FILE = 'shops.db'  # file for our Database
 
 
 class model(Model):
-    """
-    Initializing method. Runs a 'COUNT' query to verify if the table exists. If an exception is returned, it creates the table.
-    """
     def __init__(self):
+        """
+        Initializing method. Runs a 'COUNT' query to verify if the table exists. If an exception is returned, it creates the table.
+        """
         # Make sure our database exists
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
@@ -72,10 +72,28 @@ class model(Model):
                   'close_hr': close_hr, 'phone': phone, 'website':website, 'drink': drink, 'rating': rating}
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("insert into shoplist (name, street, city, state, zip, open_hr, close_hr, phone, drink, rating, website) "
+        cursor.execute("INSERT INTO shoplist (name, street, city, state, zip, open_hr, close_hr, phone, drink, rating, website) "
                        "VALUES (:name, :street, :city, :state, :zip, :open_hr, :close_hr, :phone, :drink, :rating, :website)",
                        params)
 
         connection.commit()
         cursor.close()
         return True
+
+    def delete(self, name):
+        """
+        Deletes an entry from the database
+        :param name: String
+        :return: none
+        :raises: Database errors on connection and deletion
+        """
+        connection = sqlite3.connect(DB_FILE)
+        try:
+            cursor = connection.cursor()
+            cursor.execute("DELETE FROM shoplist where name=?", (name,))
+            connection.commit()
+        except sqlite3.Error as error:
+            print("Failed to delete record from sqlite table", error)
+        finally:
+            if connection:
+                connection.close()
