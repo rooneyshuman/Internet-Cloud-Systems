@@ -51,12 +51,12 @@ class model(Model):
             'street': street,
             'city': city,
             'state': state,
-            'zip': zip,
+            'zip': int(zip),
             'open_hr': open_hr,
             'close_hr': close_hr,
             'phone': phone,
             'drink': drink,
-            'rating': rating,
+            'rating': int(rating),
             'website': website
             })
         self.client.put(rev)

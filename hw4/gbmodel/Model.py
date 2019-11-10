@@ -16,12 +16,12 @@ class Model():
         :param street: String
         :param city: String
         :param state: String
-        :param zip: integer
+        :param zip: Integer
         :param open_hr: String
         :param close_hr: String
         :param phone: String
         :param drink: String
-        :param rating: integer
+        :param rating: Integer
         :param website: String
         :return: none
         :raises: Database errors on connection and insertion
