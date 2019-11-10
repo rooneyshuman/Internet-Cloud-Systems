@@ -4,7 +4,7 @@ Helping you get your bubble tea fix. Maintains a database of bubble tea shop loc
 
 ## Deployment
 
-The web-app has not yet been deployed, but can be launched locally through `python app.py` and reachable at `http://localhost:8000`.
+The web-app has been deployed through Google App Engine and can be accessed through the following URL: `http://cs430-belen-bustamante.appspot.com/`
 
 ## Built With
 
@@ -15,7 +15,8 @@ The following frameworks were used to build this full-stack web-app:
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Web content structure
 * [Jinja2](https://palletsprojects.com/p/jinja/) - Template engine
 * [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3/) - Additional styling
-* [SQLite](https://www.sqlite.org/index.html) - Persistent data storage
+* [Google Datastore](https://cloud.google.com/datastore/docs/) - Persistent data storage
+* [Google App Engine](https://cloud.google.com/appengine/docs/) - Application deployment
 
 ## Authors
 
