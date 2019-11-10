@@ -17,14 +17,14 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-5 pt-3">
                   <div class="row">
-                    <img src="/static/images/cups_straws.jpg" style="width:180px; height:auto;">
+                    <img src="/static/images/cups_straws.jpg" style="width:100%; height:auto;">
                   </div>
                   <div class="row">
                     <form action="{{ url_for('shops') }}" method=post>
                       <input type="hidden" name="name" value="{{ shop.name }}">
-                      <button type="submit" class="btn btn-light btn-xs btn-block" value="Form" >Delete</button>
+                      <button type="submit" class="btn btn-light btn-block" value="Form" >Delete</button>
                     </form>
                   </div>
                 </div>
