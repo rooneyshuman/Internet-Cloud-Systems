@@ -4,7 +4,7 @@ Helping you get your bubble tea fix. Maintains a database of bubble tea shop loc
 
 ## Deployment
 
-The web-app has been deployed through Google App Engine and can be accessed through the following URL: `http://cs430-belen-bustamante.appspot.com/`
+The web-app has been deployed through Google App Engine and can be accessed through the following URL: [Boba Guide](http://cs430-belen-bustamante.appspot.com/)
 
 ## Built With
 
@@ -20,7 +20,7 @@ The following frameworks were used to build this full-stack web-app:
 
 ## Authors
 
-* **Belén Bustamante** - [rooneyshuman](https://bitbucket.org/bbelen)
+* **Belén Bustamante** - [bbelen](https://bitbucket.org/bbelen)
 
 ## License
 
