@@ -32,7 +32,7 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity['name'],entity['street'],entity['city'],entity['state'],entity['zip'],entity['open_hr'],entity['close_hr'],entity['phone'],entity['website'],entity['drink'],entity['rating']]
+    return [entity['name'],entity['street'],entity['city'],entity['state'],entity['zip'],entity['open_hr'],entity['close_hr'],entity['phone'],entity['drink'],entity['rating'],entity['website']]
 
 class model(Model):
     def __init__(self):
@@ -55,9 +55,9 @@ class model(Model):
             'open_hr': open_hr,
             'close_hr': close_hr,
             'phone': phone,
-            'website': website,
             'drink': drink,
-            'rating': rating
+            'rating': rating,
+            'website': website
             })
         self.client.put(rev)
         return True
