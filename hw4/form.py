@@ -17,8 +17,8 @@ class Form(MethodView):
         """
         model = gbmodel.get_model()
         website = request.form['website']
-        if !("http" in website)
-            website = "http" + website
+        if not ("http" in website):
+            website = "http://" + website
         model.insert(request.form['name'], request.form['street'], request.form['city'], request.form['state'],
                      request.form['zip'], request.form['open_hr'], request.form['close_hr'], request.form['phone'],
                      request.form['drink'], request.form['rating'], website)
