@@ -44,7 +44,7 @@ class model(Model):
         return entities
 
     def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, drink, rating, website):
-        key = self.client.key('BobaShop')
+        key = self.client.key('BobaShop', name)
         rev = datastore.Entity(key)
         rev.update( {
             'name': name,
@@ -60,4 +60,9 @@ class model(Model):
             'website': website
             })
         self.client.put(rev)
+        return True
+
+    def delete(self, name):
+        key = self.client.key('BobaShop', name)
+        self.client.delete(key)
         return True

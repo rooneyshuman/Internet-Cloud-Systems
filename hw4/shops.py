@@ -21,7 +21,7 @@ class Shops(MethodView):
         POST method for the shops page. Deletes an entry from the db when called.
         :return: renders the shops.html page on return
         """
-        # model = gbmodel.get_model()
-        # model.delete(request.form['name'])
+        model = gbmodel.get_model()
+        model.delete(request.form['name'])
 
-        # return redirect(url_for('shops'))
+        return redirect(url_for('shops'))
