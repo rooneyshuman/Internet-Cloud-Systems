@@ -24,9 +24,9 @@ def from_datastore(entity):
         [Entity{key: (kind, id), prop: val, ...}]
 
     This returns:
-        [ name, email, date, message ]
-    where name, email, and message are Python strings
-    and where date is a Python datetime
+        [ name, street, city, state, zip, open_hr, close_hr, phone, drink, rating, website ]
+    where name, street, city, state, open_hr, close_hr, phone, drink, and website are Python strings
+    and where zip and rating are Python integers
     """
     if not entity:
         return None
@@ -39,11 +39,31 @@ class model(Model):
         self.client = datastore.Client('cs430-belen-bustamante')
 
     def select(self):
+        """
+        Gets all entries from the database
+        :return: Tuple containing all rows of database
+        """
         query = self.client.query(kind = 'BobaShop')
         entities = list(map(from_datastore,query.fetch()))
         return entities
 
     def insert(self, name, street, city, state, zip, open_hr, close_hr, phone, drink, rating, website):
+        """
+        Inserts entry into database
+        :param name: String
+        :param street: String
+        :param city: String
+        :param state: String
+        :param zip: Integer
+        :param open_hr: String
+        :param close_hr: String
+        :param phone: String
+        :param drink: String
+        :param rating: Integer
+        :param website: String
+        :return: none
+        :raises: Database errors on connection and insertion
+        """
         key = self.client.key('BobaShop', name)
         rev = datastore.Entity(key)
         rev.update( {
@@ -63,6 +83,12 @@ class model(Model):
         return True
 
     def delete(self, name):
+        """
+        Deletes an entry from the database
+        :param name: String
+        :return: none
+        :raises: Database errors on connection and deletion
+        """
         key = self.client.key('BobaShop', name)
         self.client.delete(key)
         return True

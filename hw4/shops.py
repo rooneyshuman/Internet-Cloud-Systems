@@ -23,5 +23,4 @@ class Shops(MethodView):
         """
         model = bgmodel.get_model()
         model.delete(request.form['name'])
-
         return redirect(url_for('shops'))
