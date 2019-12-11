@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-[submodule "final"]
-	path = final
-	url = git@bitbucket.org:bbelen/final.git
-=======
-[submodule "final/bobaguide"]
-	path = final/bobaguide
-	url = https://github.com/rooneyshuman/bobaguide.git
->>>>>>> 63e30d76901a69353efd1207bfd04737cae424e8

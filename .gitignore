@@ -5,3 +5,4 @@ __pycache_/
 .DS_Store
 .idea
 .env
+.vscode
