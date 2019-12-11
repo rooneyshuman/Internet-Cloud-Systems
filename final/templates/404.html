@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block nav_item_shops %}active{% endblock nav_item_shops %}
+
+{% block stylesheet %}
+<link rel=stylesheet type=text/css href="/static/stylesheets/404.css">
+{% endblock %}
+
+{% block content %}
+<header>
+  <nav class="navbar mavbar-expand-sm navbar-light bg-white" role="navigation">
+    <a class="navbar-brand" href="/">
+      <img src="/static/images/logo.jpg" width=50px></i> boba guide
+    </a>
+
+    <div class="expand navbar-expand">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/form">Add Tea Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="/shops">View Tea Shops</a></li>
+      </ul>
+    </div>
+
+  </nav>
+</header>
+
+<div>
+  <div class="container main_container">
+    <div class="container" style="height:40px">
+      <h1>
+        <center>{{ shop_name }}</center>
+      </h1>
+    </div>
+    <h3>
+      <center>Uh oh... no reviews found for this shop!</center>
+    </h3>
+    <div class="container" id="spilled_milk"></div>
+    <p>
+      <center><a class="btn btn-md" href="/shops" role="button">Back to Shops List</a></center>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p class="text-center text-muted">© Copyright 2019 Boba Guide</p>
+</footer>
+{% endblock %}

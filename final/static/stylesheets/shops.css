@@ -1,0 +1,50 @@
+#shop-table {
+    width: auto;
+    margin: 20px;
+    margin-left: 15px;
+    margin-top: 0px;
+}
+
+.table-scroll {
+    height: 600px;
+    overflow: auto;
+}
+
+.checked {
+    color : rgb(42,195,193)
+}
+
+.card {
+    color :rgb(86, 86, 86);
+}
+
+.name_links {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.row {
+    width: auto;
+    margin: 0px;
+}
+
+.transparent-border {
+    border: transparent;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.btn {
+  font-size: 15px;
+    color : #007bff
+}
+
+.btn:hover {
+    color : #007bff
+}
+
+#map {
+    height: 600px;
+}

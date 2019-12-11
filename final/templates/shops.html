@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<link rel=stylesheet type=text/css href="/static/stylesheets/shops.css">
+{% endblock %}
+
+{% block content %}
+<header>
+    <nav class="navbar mavbar-expand-sm navbar-light bg-white" role="navigation">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/logo.jpg" width=50px></i> boba guide
+      </a>
+  
+      <div class="expand navbar-expand">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/form">Add Tea Shop</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/shops">View Tea Shops</a></li>
+        </ul>
+      </div>
+  
+    </nav>
+  </header>
+
+<div class="row">
+
+  <div class="col-sm-5 table-scroll pr-0">
+    <div id="shop-table">
+      <table class="table table-bordered table-striped table-light">
+        {% for shop in shops %}
+        <tr>
+          <div class="card" id="shopid{{ loop.index }}">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-5 pt-3">
+                  <div class="row">
+                    <img src="/static/images/cups_straws.jpg" style="width:100%; height:auto;">
+                  </div>
+                  <div class="row">
+                    <form action="{{ url_for('shops') }}" method=post>
+                      <input type="hidden" name="name" value="{{ shop.name }}">
+                      <button type="submit" class="btn btn-light btn-block" value="Form">Delete</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <a class="name_links" href="{{ shop.website }}">{{ loop.index }}. {{ shop.name }}</a> <br>
+                  {% for i in range(shop.rating) %}
+                  <span class="fa fa-star checked"></span>
+                  {% endfor %}
+                  {% for i in range(5 - shop.rating) %}
+                  <span class="fa fa-star"></span>
+                  {% endfor %} <br>
+                  <div class="card-text">
+                    {{ shop.street }} <br>
+                    {{ shop.city }}, {{ shop.state }} {{ shop.zip }} <br>
+                    {{ shop.phone }} <br>
+                    <b>Hours:</b> {{ shop.open_hr }} - {{ shop.close_hr }} <br>
+                    <b>Signature Drink:</b> {{ shop.drink }} <br>
+                    <a href="/reviews/{{ shop.name }}/{{ shop.phone }}"><strong>View Reviews</strong></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div id="map" class="col mr-4"></div>
+
+</div>
+
+<script type="text/javascript">
+  $('.card').hover(
+    function(){ $(this).addClass('border-info') },
+    function(){ $(this).removeClass('border-info') }
+  )
+</script>
+
+<script>
+  // Initialize and add the map
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 45.523064, lng: -122.676483 },
+      zoom: 12
+    });
+
+    // List of markers to appear on the map
+    var marker = [];
+    // Stores the coordinates for each shop location
+    var shop_locations = {{ shop_locations | safe }};
+    var infowindow = [];
+    var obj;
+    var mapContent;
+
+  {% for shop in shops %}
+    mapContent =
+      '<div class="card transparent-border" id="mapid{{ loop.index }}">' +
+        '<div class="card-body px-0 pt-2 pb-0">' +
+          '<div class="row">' +
+            '<div class="col">' +
+              '<h5 class="card-text">{{ loop.index }}. {{ shop.name }}</h5>';
+                for (var j = 0; j < {{ shop.rating }}; ++j) {
+                  mapContent += '<span class="fa fa-star checked"></span>';
+                }
+                for (var j = 0; j < (5 - {{ shop.rating }}); ++j) {
+                  mapContent += '<span class="fa fa-star"></span>';
+                }
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+
+    var icon = {
+      url: '/static/images/favicon.ico',
+      scaledSize: new google.maps.Size(32, 32),
+    }
+
+    marker.push(
+      new google.maps.Marker({
+        position: shop_locations[{{ loop.index - 1 }}],
+        map: map,
+        icon: icon
+        })
+    );
+
+    infowindow.push(
+      new google.maps.InfoWindow({
+        content: mapContent
+      })
+    );
+
+    marker[{{ loop.index }} - 1].addListener('click', function () {
+      for (j = 0; j < infowindow.length; ++j) {
+        infowindow[j].close();
+      }
+      infowindow[{{ loop.index }} - 1].open(map, marker[{{ loop.index }} - 1]);
+    });
+
+    obj = document.getElementById("shopid{{ loop.index }}");
+    obj.addEventListener('click', function () {
+      for (j = 0; j < infowindow.length; ++j) {
+        infowindow[j].close();
+      }
+      infowindow[{{ loop.index }} - 1].open(map, marker[{{ loop.index }} - 1]);
+    });
+
+  {% endfor %}
+  }
+</script>
+<!-- Loads the API from the specified URL
+  * The async attribute allows the browser to render the page while the API loads
+  * The key parameter contains our API key
+  * The callback parameter executes the initMap() function
+-->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ api_keys.google }}&callback=initMap" async defer></script>
+<footer>
+  <p class="text-center text-muted">© Copyright 2019 Boba Guide</p>
+</footer>
+{% endblock %}
